@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/bootstrap.min.css}">
+
+        <title>Result</title>
+    </head>
+    <body class="p-3 mb-2 bg-light text-black">
+        <div class="container justify-content-center w-50 p-3" style="margin-top: 5em;">
+
+
+
+            <div th:if="${successUpload}" class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>File Upload Successful Click <a href="/home">here</a> to continue.</span>
+            </div>
+
+            <div th:if="${errorUpload}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span th:text="${errorUpload}">Example Error Message</span>
+                <span>Click <a href="/home">here</a> to continue.</span>
+            </div>
+
+            <div th:if="${successCreateUpdate}"  class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>Your changes were successfully saved/updated. Click <a th:href="@{/home}" >here</a> to continue.</span>
+            </div>
+
+            <div th:if="${errorUpdateCreate}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span th:text="${errorUpdateCreate}" />
+                <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+            </div>
+
+
+            <div th:if="${userNotAvailable}" class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span th:text="${userNotAvailable}" />
+                <span>Click <a th:href="@{/singnup}">here</a> to continue.</span>
+            </div>
+
+            <div th:if="${successDelete}"  class="alert alert-success fill-parent">
+                <h1 class="display-5">Success</h1>
+                <span>Your changes were successfully Deleted. Click <a th:href="@{/home}" >here</a> to continue.</span>
+            </div>
+
+            <div th:if="${errorDelete}"class="alert alert-danger fill-parent">
+                <h1 class="display-5">Error</h1>
+                <span th:text="${errorDelete}"></span>
+                <span>Click <a th:href="@{/home}">here</a> to continue.</span>
+            </div>
+        </div>
+    </body>
+</html>

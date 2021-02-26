@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Display Greetings</title>
+</head>
+<body>
+
+<form action="#" th:object="${newChat}" method="POST" th:action="@{'/chat'}">
+
+
+    <label for="messageText">Message Text:</label>
+    <input id="messageText" type="text" name="messageText" th:field="*{mess
+    ageText}">
+
+    <label for="newMesageType">Select MessageType</label>
+    <select  id="newMesageType" th:field="*{mesageType}">
+
+            <option th:each="mesageType : ${T(com.udacity.mvc.model.MesageType).values()}"
+                    th:value="${mesageType}"
+                    th:text="${mesageType}">
+            </option>
+        </select>
+    </select>
+
+
+
+    <input type="submit">
+</form>
+
+<div th:each="chatMessage : ${chatMessages}">
+    <span th:text="${chatMessage.userName}">Username</span>: <span th:text="${chatMessage.messageText}">Hello, world!</span>
+</div>
+
+
+</body>
+</html>
